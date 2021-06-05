@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="JS基础JS编写位置可以直接编写在标签内部（不常用） 写在&lt;script&gt;标签内 写在外部文件中，通过&lt;script&gt;标签引入 ps：当&lt;script&gt;标签用于引入外部文件时，就会忽略标签内部的代码。 JS变量用var 关键词来声明一个变量 JS标识符命名规则： 可以含有字母、数字、_、$,不能以数字开头 不能是关键字和保留字 命名规范：驼峰命名法 JS数据类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="不想取名的L">
+<meta property="og:url" content="http://example.com/2021/06/05/Js%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="不想取名的L">
+<meta property="og:description" content="JS基础JS编写位置可以直接编写在标签内部（不常用） 写在&lt;script&gt;标签内 写在外部文件中，通过&lt;script&gt;标签引入 ps：当&lt;script&gt;标签用于引入外部文件时，就会忽略标签内部的代码。 JS变量用var 关键词来声明一个变量 JS标识符命名规则： 可以含有字母、数字、_、$,不能以数字开头 不能是关键字和保留字 命名规范：驼峰命名法 JS数据类型">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-06-05T10:11:57.622Z">
+<meta property="article:modified_time" content="2020-11-23T04:11:06.292Z">
+<meta property="article:author" content="L">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/06/05/Js%E7%AC%94%E8%AE%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | 不想取名的L</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">不想取名的L</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/05/Js%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="L">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不想取名的L">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-05 18:11:57" itemprop="dateCreated datePublished" datetime="2021-06-05T18:11:57+08:00">2021-06-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-23 12:11:06" itemprop="dateModified" datetime="2020-11-23T12:11:06+08:00">2020-11-23</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="JS基础"><a href="#JS基础" class="headerlink" title="JS基础"></a>JS基础</h1><h2 id="JS编写位置"><a href="#JS编写位置" class="headerlink" title="JS编写位置"></a>JS编写位置</h2><p>可以直接编写在标签内部（不常用）</p>
+<p>写在&lt;script&gt;标签内</p>
+<p>写在外部文件中，通过&lt;script&gt;标签引入</p>
+<p>ps：当&lt;script&gt;标签用于引入外部文件时，就会忽略标签内部的代码。</p>
+<h2 id="JS变量"><a href="#JS变量" class="headerlink" title="JS变量"></a>JS变量</h2><p>用var 关键词来声明一个变量</p>
+<h2 id="JS标识符"><a href="#JS标识符" class="headerlink" title="JS标识符"></a>JS标识符</h2><p>命名规则：</p>
+<p>可以含有字母、数字、_、$,不能以数字开头</p>
+<p>不能是关键字和保留字</p>
+<p>命名规范：驼峰命名法</p>
+<h2 id="JS数据类型"><a href="#JS数据类型" class="headerlink" title="JS数据类型"></a>JS数据类型</h2><p>基本数据类型的值直接在栈内存中存储</p>
+<p>对象存储在堆内存</p>
+<p>引用数据类型比较时比较地址</p>
+<h4 id="String-字符串"><a href="#String-字符串" class="headerlink" title="String 字符串"></a>String 字符串</h4><h4 id="Number-数值"><a href="#Number-数值" class="headerlink" title="Number 数值"></a>Number 数值</h4><p>Number.MAX_VALUE 表示JS可以表示的最大数</p>
+<p>当数值超过Number.MAX_VALUE时，会返回Infinity（正无穷 ）</p>
+<h4 id="Boolean-布尔值"><a href="#Boolean-布尔值" class="headerlink" title="Boolean 布尔值"></a>Boolean 布尔值</h4><h4 id="Null-空"><a href="#Null-空" class="headerlink" title="Null 空"></a>Null 空</h4><h4 id="Undefined-未定义"><a href="#Undefined-未定义" class="headerlink" title="Undefined 未定义"></a>Undefined 未定义</h4><h4 id="Object-对象"><a href="#Object-对象" class="headerlink" title="Object 对象"></a>Object 对象</h4><h3 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h3><h4 id="其他数据类型转换为String"><a href="#其他数据类型转换为String" class="headerlink" title="其他数据类型转换为String"></a>其他数据类型转换为String</h4><p>1.调用被转换数据类型的toString（）方法，不影响原变量，而是将转换的结果返回。（null和undefined无toString（）方法）</p>
+<p>2.调用String（）函数</p>
+<h4 id="其他数据类型转换为Number"><a href="#其他数据类型转换为Number" class="headerlink" title="其他数据类型转换为Number"></a>其他数据类型转换为Number</h4><p>1.调用Number（）函数（true为1，false为0）</p>
+<p>2.parseInt（）把一个字符串转换为一个整数</p>
+<p>   parseFloat（）把一个字符串转换为一个浮点数</p>
+<h4 id="其他数据类型转换为Boolean"><a href="#其他数据类型转换为Boolean" class="headerlink" title="其他数据类型转换为Boolean"></a>其他数据类型转换为Boolean</h4><p>1.调用Boolean（）函数</p>
+<p>非零数都为true</p>
+<p>字符串中除了空串都为true </p>
+<h2 id="JS运算符"><a href="#JS运算符" class="headerlink" title="JS运算符"></a>JS运算符</h2><p>typeof 检查一个变量的类型</p>
+<p>算术运算符不对原变量改值</p>
+<h2 id="JS对象"><a href="#JS对象" class="headerlink" title="JS对象"></a>JS对象</h2><h3 id="对象的分类"><a href="#对象的分类" class="headerlink" title="对象的分类"></a>对象的分类</h3><p>内建对象、宿主对象、自定义对象</p>
+<p>宿主对象 BOM与DOM</p>
+<h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var obj = new Object()</span><br><span class="line">var obj = &#123;&#125;//使用对象字面量创建对象</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="向对象中增加属性"><a href="#向对象中增加属性" class="headerlink" title="向对象中增加属性"></a>向对象中增加属性</h3><p>对象.属性名 = 属性值</p>
+<p>或者对象[“属性名”] = 属性值</p>
+<p>ps:在[]中可以直接传递一个变量</p>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><h4 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h4><p>在全局作用域中中有一个全局对象window（代表一个浏览器的窗口），创建的变量都会作为window对象的属性保存</p>
+<h4 id="变量的声明提前"><a href="#变量的声明提前" class="headerlink" title="变量的声明提前"></a>变量的声明提前</h4><p>使用var关键字声明的变量，会在所有代码执行前被声明（但不会被赋值）</p>
+<h4 id="函数的声明提前"><a href="#函数的声明提前" class="headerlink" title="函数的声明提前"></a>函数的声明提前</h4><p>用函数声明形式创建的函数function 函数（）{}会在所有代码执行前被创建</p>
+<p>使用函数表达式创建的函数，不会被声明提前</p>
+<h1 id="创建函数"><a href="#创建函数" class="headerlink" title="创建函数"></a>创建函数</h1><p>使用函数声明来创建对象</p>
+<p>function 函数名（形参）{函数体}</p>
+<p>使用函数表达式来创建一个函数</p>
+<p>var 函数名 = function（形参）{函数体}</p>
+<p>调用函数时，解析器不会检查实参的类型，也不会检查实参的数量</p>
+<h1 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h1>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/05/html%E5%9F%BA%E7%A1%80/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JS%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">JS基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JS%E7%BC%96%E5%86%99%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.1.</span> <span class="nav-text">JS编写位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS%E5%8F%98%E9%87%8F"><span class="nav-number">1.2.</span> <span class="nav-text">JS变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="nav-number">1.3.</span> <span class="nav-text">JS标识符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">JS数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#String-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">String 字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Number-%E6%95%B0%E5%80%BC"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">Number 数值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Boolean-%E5%B8%83%E5%B0%94%E5%80%BC"><span class="nav-number">1.4.0.3.</span> <span class="nav-text">Boolean 布尔值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Null-%E7%A9%BA"><span class="nav-number">1.4.0.4.</span> <span class="nav-text">Null 空</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Undefined-%E6%9C%AA%E5%AE%9A%E4%B9%89"><span class="nav-number">1.4.0.5.</span> <span class="nav-text">Undefined 未定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object-%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.4.0.6.</span> <span class="nav-text">Object 对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.4.1.</span> <span class="nav-text">数据类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%BAString"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">其他数据类型转换为String</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%BANumber"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">其他数据类型转换为Number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%BABoolean"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">其他数据类型转换为Boolean</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.5.</span> <span class="nav-text">JS运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.6.</span> <span class="nav-text">JS对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">1.6.1.</span> <span class="nav-text">对象的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.6.2.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%AD%E5%A2%9E%E5%8A%A0%E5%B1%9E%E6%80%A7"><span class="nav-number">1.6.3.</span> <span class="nav-text">向对象中增加属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.6.4.</span> <span class="nav-text">作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.6.4.1.</span> <span class="nav-text">全局作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E%E6%8F%90%E5%89%8D"><span class="nav-number">1.6.4.2.</span> <span class="nav-text">变量的声明提前</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%A3%B0%E6%98%8E%E6%8F%90%E5%89%8D"><span class="nav-number">1.6.4.3.</span> <span class="nav-text">函数的声明提前</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">创建函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">事件</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">L</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">L</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
